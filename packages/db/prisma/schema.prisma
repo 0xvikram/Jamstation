@@ -18,15 +18,20 @@ model User{
   name     String?
   email    String @unique
   image    String?
+  contact  String? 
   createdAt DateTime @default(now())
-  hostedSession Sesion?
+  hostedSession Session?
 }
 
-model Sesion{
+model Session{
   id  String  @id @default(uuid())
   title String
   hostId  String @unique
   createdAt DateTime @default(now())
 
   host    User  @relation(fields: [hostId],references: [id])
+}
+model Host{
+  id String @id @default(uuid())
+  name String
 }
