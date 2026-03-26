@@ -1,7 +1,9 @@
 import Fastify, { fastify } from "fastify";
 import { userRoutes } from "./routes/user";
+import { sessionRoutes } from "./routes/session";
 const app=fastify();
 app.register(userRoutes);
+app.register(sessionRoutes);
 
 app.get('/', async()=>{
   return {message:"API Running.."};
